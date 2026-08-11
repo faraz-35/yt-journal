@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="28" fill="#ef4444"/>
+  <!-- play triangle -->
+  <path d="M52 40 L88 64 L52 88 Z" fill="#FFFFFF"/>
+  <!-- journal underline -->
+  <rect x="34" y="98" width="60" height="6" rx="3" fill="#FFFFFF"/>
+</svg>

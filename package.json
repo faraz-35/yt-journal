@@ -1,0 +1,17 @@
+{
+  "name": "yt-journal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Log YouTube videos into a skill dir, so an agent can read your intellectual journey later.",
+  "scripts": {
+    "server": "node --env-file=.env src/server.mjs",
+    "lint": "web-ext lint --self-hosted --source-dir extension",
+    "build": "web-ext build --source-dir extension --overwrite-dest",
+    "sign": "node --env-file=.env node_modules/web-ext/bin/web-ext.js sign --source-dir extension --channel unlisted",
+    "release": "node --env-file=.env scripts/release.mjs"
+  },
+  "devDependencies": {
+    "web-ext": "^10.6.0"
+  }
+}

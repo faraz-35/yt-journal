@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Keeps the yt-journal server (src/server.mjs) always running: starts at login,
+  auto-restarts if it exits/crashes (KeepAlive), and survives reboots. The
+  extension talks to this server at http://127.0.0.1:8776.
+
+  Install / update after editing:
+    launchctl load -w ~/Library/LaunchAgents/com.faraz.yt-journal.plist
+  Uninstall (stop + disable):
+    launchctl unload -w ~/Library/LaunchAgents/com.faraz.yt-journal.plist
+  Tail the logs:
+    tail -f logs/launchd.out.log logs/launchd.err.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.faraz.yt-journal</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/farazshah/.local/bin/node</string>
+    <string>--env-file=.env</string>
+    <string>src/server.mjs</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/farazshah/Programming/yt-journal</string>
+
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>ThrottleInterval</key>
+  <integer>10</integer>
+
+  <key>StandardOutPath</key>
+  <string>/Users/farazshah/Programming/yt-journal/logs/launchd.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/farazshah/Programming/yt-journal/logs/launchd.err.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/farazshah/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+</dict>
+</plist>

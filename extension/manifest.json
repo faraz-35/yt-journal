@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "YT Journal",
+  "version": "0.1.0",
+  "description": "Log a YouTube video to your personal journal skill dir. Talks to your local yt-journal server (127.0.0.1:8776).",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "yt-journal@local",
+      "strict_min_version": "142.0",
+      "update_url": "https://raw.githubusercontent.com/faraz-35/yt-journal/main/updates.json",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+
+  "permissions": ["scripting"],
+
+  "host_permissions": [
+    "http://127.0.0.1:8776/*",
+    "https://www.youtube.com/*",
+    "https://youtube.com/*"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "action": {
+    "default_title": "YT Journal — log this video",
+    "default_icon": "icons/icon.svg"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "commands": {
+    "open-log-card": {
+      "suggested_key": { "default": "Ctrl+Shift+V" },
+      "description": "Open the video-log card on the current YouTube video"
+    }
+  }
+}
