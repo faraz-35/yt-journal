@@ -37,9 +37,10 @@ as markdown following the `my-answers` convention.
 
 Firefox Release won't keep an unsigned add-on across restarts, so the temporary
 load above disappears each session. This path gets you a **self-distributed
-signed** XPI that installs permanently and **auto-updates** from a private
+signed** XPI that installs permanently and **auto-updates** from a public
 GitHub repo. Journal entries live on disk (`~/.agents/skills/about-me/yt-journal/`),
-so no update can ever lose them.
+so no update can ever lose them. (The repo must be public: Firefox fetches the
+update manifest unauthenticated, and the XPI is the source zipped anyway.)
 
 ### One-time setup
 
