@@ -1,7 +1,13 @@
 {
   "addons": {
     "yt-journal@local": {
-      "updates": []
+      "updates": [
+        {
+          "version": "0.1.0",
+          "update_link": "https://github.com/faraz-35/yt-journal/releases/download/v0.1.0/a983385c1389446fae5c-0.1.0.xpi",
+          "update_hash": "sha256:a4f934d1937368fe8177152cf3fee277d14a78f5b1412de40832e870ce577986"
+        }
+      ]
     }
   }
 }
